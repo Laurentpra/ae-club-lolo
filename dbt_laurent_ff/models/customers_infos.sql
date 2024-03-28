@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+) }}
+
 WITH customer_orders AS (
     SELECT 
         customer_id, 
@@ -16,4 +20,3 @@ SELECT
 FROM `analytics-engineers-club.coffee_shop.customers` AS customers 
 LEFT JOIN customer_orders
     ON customers.id = customer_orders.customer_id
-WHERE customers.id IS NOT NULL
